@@ -1,15 +1,47 @@
 # Aarch64-native toolchains
--------------
 
 
-Various toolchains compiled on an Aarch64 Android device for use with Android kernels. Compiled on a OnePlus 7 Pro using USBHost's build-tools-gcc repo. Just unpack toolchain where you need it and build.
+Various toolchains compiled on an Aarch64 Android 10 device for use with
+compiling Android kernels. Compiled on a OnePlus 7 Pro using USBHost's
+build-tools-gcc repo. To download toolchains, you need git-lfs installed
+(apt, pacman, rpm, etc.) and then clone this repo, e.g.:
 
 
---------------
-Host Device Specifications:
---------------
-Device: | Oneplus 7 Pro (GM1917)
-Host: | Arch Linux ARM rolling (Termux proot)
-Kernel Version: | 4.14.168-Kirisakura-Guacamole_Q_1.7.0
-CPU Model: | Qualcomm SM8150 (8) @ 1.78GHz
-GCC Version: | GCC 9.2.0
+`$ git clone https://github.com/RebelLion420/aarch64-native-tc`
+
+
+If for some reason the files fail to download, running `git pull`, or if that
+fails `git lfs pull`, should work. If you wish to only download a single
+toolchain you can clone the repo without LFS and fetch the toolchain with the
+"include" flag for `git lfs fetch`, e.g.:
+
+
+`$ GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/RebelLion420/aarch64-native-tc`
+
+`$ cd aarch64-native-tc/`
+
+`$ git lfs fetch -I aarch64-gnu/aarch64-gnu-4.9.4-arm-linux-gnueabi.tar.xz`
+
+
+Then simply unpack the toolchain where desired:
+
+
+`$ tar xpf aarch64-gnu/aarch64-gnu-4.9.4-arm-linux-gnueabi.tar.xz -C ~/toolchain`
+
+
+Or if you like progress bars and have `pv` installed:
+
+
+`$ pv aarch64-gnu/aarch64-gnu-4.9.4-arm-linux-gnueabi.tar.xz | tar xp -C ~/toolchain`
+
+
+
+## Host Machine
+
+Type | Specs 
+--- | ---
+**Device:** | Oneplus 7 Pro (GM1917)
+**Host:** | Arch Linux ARM rolling (Termux proot)
+**Kernel Version:** | 4.14.168-Kirisakura-Guacamole_Q_1.7.0
+**CPU Model:** | Qualcomm SM8150 (8) @ 1.78GHz
+**GCC Version:** | GCC 9.2.0
