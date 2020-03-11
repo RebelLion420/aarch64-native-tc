@@ -1,10 +1,12 @@
 # Aarch64-native toolchains
 
 
-Various toolchains compiled on an Aarch64 Android 10 device for use with
-compiling Android kernels. Compiled on a OnePlus 7 Pro using USBHost's
-build-tools-gcc repo. To download toolchains, you need git-lfs installed
-(apt, pacman, rpm, etc.) and then clone this repo, e.g.:
+Various toolchains for use with compiling Android kernels. Compiled on a
+OnePlus 7 Pro using USBHost's build-tools-gcc repo. Specs at bottom.
+
+
+To download toolchains, you need git-lfs installed (apt, pacman, rpm, etc.)
+and then clone this repo, e.g.:
 
 
 `$ git clone https://github.com/RebelLion420/aarch64-native-tc`
@@ -38,10 +40,12 @@ Or if you like progress bars and have `pv` installed:
 
 ## Host Machine
 
-Type | Specs 
+Type | Value
 --- | ---
 **Device:** | Oneplus 7 Pro (GM1917)
-**Host:** | Arch Linux ARM rolling (Termux proot)
+**System:** | OOS 10.3.1
+**Host:** | Arch Linux ARM rolling (Termux v0.92)
+**Host Arch:** | Aarch64 / ARMv8-A
 **Kernel Version:** | 4.14.168-Kirisakura-Guacamole_Q_1.7.0
-**CPU Model:** | Qualcomm SM8150 (8) @ 1.78GHz
+**CPU Model:** | Qualcomm SM8150
 **GCC Version:** | GCC 9.2.0
