@@ -13,28 +13,31 @@ and then clone this repo, e.g.:
 
 
 If for some reason the files fail to download, running `git pull`, or if that
-fails `git lfs pull`, should work. If you wish to only download a single
-toolchain you can clone the repo without LFS and fetch the toolchain with the
-"include" flag for `git lfs fetch`, e.g.:
+fails `git lfs pull`, should work.
+
+If you wish to only download a single toolchain you can clone the repo without
+LFS and fetch the toolchain with the "include" flag for `git lfs pull`, e.g.:
 
 
 `$ GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/RebelLion420/aarch64-native-tc`
 
 `$ cd aarch64-native-tc/`
 
-`$ git lfs fetch -I aarch64-gnu/aarch64-gnu-4.9.4-arm-linux-gnueabi.tar.xz`
+`$ git lfs pull -I aarch64-gnu/aarch64-gnu-4.9.4-arm-linux-gnueabi.tar.xz`
 
 
 Then simply unpack the toolchain where desired:
 
 
-`$ tar xpf aarch64-gnu/aarch64-gnu-4.9.4-arm-linux-gnueabi.tar.xz -C ~/toolchain`
+`$ mkdir ~/toolchain`
+
+`$ tar xpJf aarch64-gnu/aarch64-gnu-4.9.4-arm-linux-gnueabi.tar.xz -C ~/toolchain`
 
 
 Or if you like progress bars and have `pv` installed:
 
 
-`$ pv aarch64-gnu/aarch64-gnu-4.9.4-arm-linux-gnueabi.tar.xz | tar xp -C ~/toolchain`
+`$ pv aarch64-gnu/aarch64-gnu-4.9.4-arm-linux-gnueabi.tar.xz | tar xpJ -C ~/toolchain`
 
 
 
